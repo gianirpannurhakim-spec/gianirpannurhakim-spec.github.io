@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gian Irpan Nurhakim — Digital Marketing &amp; Sales | Informatics Student</title>
+  <meta name="description" content="Portofolio Gian Irpan Nurhakim: Digital Marketing & Sales Representative dan mahasiswa Teknik Informatika.">
+  <meta name="theme-color" content="#0b1220">
+
+  <style>
+    /* =========================================================
+       1. TEMA & VARIABEL WARNA  (ubah aksen di sini)
+       ========================================================= */
+    :root {
+      --bg: #0b1220;          /* navy gelap */
+      --bg-soft: #0f1a2e;
+      --card: #111c31;
+      --border: #1e2d4a;
+      --text: #e6edf7;
+      --muted: #8fa1bd;
+      --accent: #22d3ee;      /* cyan */
+      --accent-2: #3b82f6;    /* blue */
+      --radius: 16px;
+    }
+
+    /* =========================================================
+       2. RESET & BASE
+       ========================================================= */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(34, 211, 238, .10), transparent 60%),
+        radial-gradient(800px 500px at -10% 20%, rgba(59, 130, 246, .10), transparent 60%),
+        var(--bg);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 72px 0; }
+
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-title::after {
+      content: ""; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+    .section-sub { color: var(--muted); margin-bottom: 32px; }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+
+    /* =========================================================
+       3. NAVBAR
+       ========================================================= */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 18, 32, .75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-weight: 800; letter-spacing: .5px; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a {
+      color: var(--muted); font-size: .92rem;
+      padding: 6px 12px; border-radius: 8px;
+      transition: color .25s, background .25s;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(34, 211, 238, .08); }
+    @media (max-width: 560px) {
+      .nav-links a { padding: 6px 8px; font-size: .85rem; }
+    }
+
+    /* =========================================================
+       4. HERO
+       ========================================================= */
+    .hero { padding: 72px 0 40px; }
+    .hero-inner {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 44px; align-items: center;
+    }
+    .avatar-wrap { position: relative; width: 190px; height: 190px; }
+    .avatar-wrap::before {            /* ring bercahaya */
+      content: ""; position: absolute; inset: -6px; border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent));
+      animation: spin 8s linear infinite;
+      filter: blur(.3px);
+    }
+    .avatar-wrap::after {             /* glow lembut */
+      content: ""; position: absolute; inset: -22px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, .25), transparent 65%);
+      z-index: -1;
+    }
+    .avatar {
+      position: relative; width: 100%; height: 100%;
+      border-radius: 50%; object-fit: cover;
+      border: 5px solid var(--bg);
+      background: var(--card);
+      animation: pop-in .9s cubic-bezier(.2, .8, .2, 1) both;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pop-in {
+      from { opacity: 0; transform: scale(.6) rotate(-8deg); }
+      to   { opacity: 1; transform: scale(1) rotate(0); }
+    }
+    @keyframes fade-up-load {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text > * { animation: fade-up-load .8s ease both; }
+    .hero-text > *:nth-child(1) { animation-delay: .15s; }
+    .hero-text > *:nth-child(2) { animation-delay: .30s; }
+    .hero-text > *:nth-child(3) { animation-delay: .45s; }
+    .hero-text > *:nth-child(4) { animation-delay: .60s; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .82rem; color: var(--accent);
+      border: 1px solid rgba(34, 211, 238, .35);
+      background: rgba(34, 211, 238, .08);
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 14px;
+    }
+    .badge i {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse { 50% { opacity: .3; transform: scale(.7); } }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3.1rem); line-height: 1.12; margin-bottom: 10px; }
+    .headline { color: var(--muted); font-size: 1.05rem; font-weight: 500; margin-bottom: 14px; }
+    .tagline { max-width: 540px; color: #b6c3da; }
+
+    .btns { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 12px; font-weight: 600; font-size: .95rem;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .btn.primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #04101c;
+    }
+    .btn.primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(34, 211, 238, .28); }
+    .btn.ghost { border: 1px solid var(--border); color: var(--text); background: rgba(255, 255, 255, .02); }
+    .btn.ghost:hover { transform: translateY(-3px); border-color: var(--accent); background: rgba(34, 211, 238, .07); }
+
+    @media (max-width: 720px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 30px; }
+      .btns { justify-content: center; }
+      .avatar-wrap { width: 160px; height: 160px; }
+    }
+
+    /* =========================================================
+       5. ABOUT
+       ========================================================= */
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+    .box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px;
+    }
+    .box h3 { margin-bottom: 12px; font-size: 1.05rem; }
+    .box p { color: #b6c3da; }
+    .interests { display: flex; flex-wrap: wrap; gap: 10px; }
+    .interests span {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-soft); border: 1px solid var(--border);
+      padding: 8px 14px; border-radius: 999px; font-size: .9rem;
+      transition: transform .25s ease, border-color .25s ease, color .25s ease;
+    }
+    .interests span:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       6. EXPERIENCE
+       ========================================================= */
+    .exp {
+      position: relative;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 30px;
+      transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+    }
+    .exp::before {
+      content: ""; position: absolute; left: 0; top: 24px; bottom: 24px; width: 4px;
+      border-radius: 4px; background: linear-gradient(var(--accent), var(--accent-2));
+    }
+    .exp:hover { border-color: rgba(34, 211, 238, .5); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0, 0, 0, .3); }
+    .exp-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-bottom: 14px; }
+    .exp-head h3 { font-size: 1.2rem; }
+    .exp-head .company { color: var(--accent); font-weight: 600; }
+    .exp-head .period {
+      font-size: .82rem; color: var(--accent);
+      border: 1px solid rgba(34, 211, 238, .35); border-radius: 999px;
+      padding: 3px 12px; align-self: start;
+    }
+    .exp ul { display: grid; gap: 12px; margin-top: 14px; }
+    .exp li { position: relative; padding-left: 22px; color: #b6c3da; }
+    .exp li::before {
+      content: ""; position: absolute; left: 0; top: .6em;
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .chip {
+      font-size: .78rem; color: var(--accent);
+      background: rgba(34, 211, 238, .08);
+      border: 1px solid rgba(34, 211, 238, .25);
+      padding: 3px 10px; border-radius: 999px;
+    }
+
+    /* =========================================================
+       7. SKILLS
+       ========================================================= */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 26px;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 18px 40px rgba(34, 211, 238, .12);
+    }
+    .skill-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: grid; place-items: center; font-size: 1.4rem; margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(34, 211, 238, .18), rgba(59, 130, 246, .18));
+      transition: transform .3s ease;
+    }
+    .skill-card:hover .skill-icon { transform: scale(1.12) rotate(-6deg); }
+    .skill-card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags span {
+      font-size: .85rem; background: var(--bg-soft);
+      border: 1px solid var(--border); padding: 5px 12px; border-radius: 8px;
+      color: #c4d0e4;
+      transition: color .25s, border-color .25s, background .25s;
+    }
+    .tags span:hover { color: var(--accent); border-color: var(--accent); background: rgba(34, 211, 238, .06); }
+
+    /* =========================================================
+       8. CONTACT & FOOTER
+       ========================================================= */
+    .contact { text-align: center; }
+    .contact .section-title { justify-content: center; }
+    .contact .section-title::after { display: none; }
+    .contact p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; }
+    .socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+    .social {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 20px; border-radius: 12px;
+      background: var(--card); border: 1px solid var(--border);
+      font-weight: 600; font-size: .95rem;
+      transition: transform .25s ease, border-color .25s ease, color .25s ease, box-shadow .25s ease;
+    }
+    .social svg { width: 20px; height: 20px; fill: currentColor; }
+    .social:hover {
+      transform: translateY(-4px); color: var(--accent); border-color: var(--accent);
+      box-shadow: 0 10px 26px rgba(34, 211, 238, .15);
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0; text-align: center; color: var(--muted); font-size: .88rem;
+    }
+
+    /* =========================================================
+       9. ANIMASI SCROLL REVEAL (dipicu JavaScript di bawah)
+       ========================================================= */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity .8s cubic-bezier(.2, .8, .2, 1), transform .8s cubic-bezier(.2, .8, .2, 1);
+      transition-delay: var(--delay, 0ms);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Hormati pengguna yang mematikan animasi di perangkatnya */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="#home" class="logo">GIAN<span>.</span></a>
+      <nav class="nav-links">
+        <a href="#about">Tentang</a>
+        <a href="#experience">Pengalaman</a>
+        <a href="#skills">Skill</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+      <div class="wrap hero-inner">
+
+        <div class="avatar-wrap">
+          <!--
+            CARA GANTI FOTO PROFIL:
+            1. Simpan foto kamu di folder yang sama dengan file ini, beri nama: foto-profil.jpg
+            2. Selesai! Kalau file itu belum ada, otomatis tampil gambar placeholder.
+            (Mau pakai nama/format lain? Ganti nilai src di bawah, misalnya "foto-gian.png")
+          -->
+          <img class="avatar"
+               src="foto-profil.jpeg"
+               alt="Foto profil Gian Irpan Nurhakim"
+               width="190" height="190"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%23111c31%22/%3E%3Ccircle cx=%22150%22 cy=%22115%22 r=%2260%22 fill=%22%231e2d4a%22/%3E%3Cpath d=%22M40 300c0-70 50-110 110-110s110 40 110 110z%22 fill=%22%231e2d4a%22/%3E%3Ctext x=%22150%22 y=%22285%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%238fa1bd%22 text-anchor=%22middle%22%3EFOTO PROFIL%3C/text%3E%3C/svg%3E';">
+        </div>
+
+        <div class="hero-text">
+          <span class="badge"><i></i> Terbuka untuk peluang &amp; kolaborasi</span>
+          <h1>Halo, saya <span class="gradient-text">Gian Irpan Nurhakim</span></h1>
+          <p class="headline">Digital Marketing &amp; Sales Representative &nbsp;|&nbsp; Informatics Student</p>
+          <p class="tagline">
+            Memadukan kreativitas branding dan strategi digital dengan logika pemrograman,
+            karena kampanye yang kuat lahir dari cerita yang menarik dan fondasi teknologi yang solid.
+          </p>
+          <div class="btns">
+            <a class="btn primary" href="#experience">Lihat Pengalaman</a>
+            <a class="btn ghost" href="#contact">Hubungi Saya</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="wrap">
+        <h2 class="section-title reveal">Tentang Saya</h2>
+        <p class="section-sub reveal" style="--delay:80ms">Sedikit cerita tentang siapa saya dan apa yang saya suka.</p>
+
+        <div class="about-grid">
+          <div class="box reveal" style="--delay:120ms">
+            <h3>👋 Profil</h3>
+            <p>
+              Saya mahasiswa Teknik Informatika yang aktif berkarier di bidang digital marketing dan sales.
+              Latar belakang teknis membuat saya terbiasa berpikir terstruktur dan berbasis data,
+              sementara pengalaman lapangan mengajarkan saya cara memahami kebutuhan klien,
+              membangun branding, dan mengubah ketertarikan menjadi leads yang nyata.
+              Saya senang berada di persimpangan antara kreativitas dan teknologi.
+            </p>
+          </div>
+
+          <div class="box reveal" style="--delay:240ms">
+            <h3>✨ Hobi &amp; Minat</h3>
+            <div class="interests">
+              <span>Automotive Customization</span>
+              <span>PC &amp; Console Gaming</span>
+              <span>Content Creation (Short-form Video Editing)</span>
+              <span>Fitness</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience">
+      <div class="wrap">
+        <h2 class="section-title reveal">Pengalaman Saat Ini</h2>
+        <p class="section-sub reveal" style="--delay:80ms">Posisi yang sedang saya jalani.</p>
+
+        <article class="exp reveal" style="--delay:120ms">
+          <div class="exp-head">
+            <div>
+              <h3>Digital Marketing &amp; Sales Representative</h3>
+              <span class="company">PT. Legacy Pijar Buana</span>
+            </div>
+            <span class="period">Saat ini</span>
+          </div>
+
+          <div class="chips">
+            <span class="chip">SKK</span>
+            <span class="chip">SBU</span>
+            <span class="chip">ISO</span>
+            <span class="chip">IUJP</span>
+            <span class="chip">SERKOM</span>
+            <span class="chip">SBUJPTL</span>
+            <span class="chip">Pendirian Badan Usaha</span>
+          </div>
+
+          <ul>
+            <li>Mengembangkan strategi digital marketing dan kampanye media sosial untuk layanan sertifikasi perusahaan (SKK, SBU, ISO, IUJP, SERKOM, SBUJPTL, serta pendirian badan usaha).</li>
+            <li>Merancang materi promosi visual (poster, flyer digital, dan konten branding) untuk meningkatkan leads dan keterlibatan klien.</li>
+            <li>Mengelola komunikasi dan penawaran layanan kepada klien secara profesional.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills">
+      <div class="wrap">
+        <h2 class="section-title reveal">Keahlian</h2>
+        <p class="section-sub reveal" style="--delay:80ms">Kombinasi skill marketing, teknis, dan kreatif.</p>
+
+        <div class="skills-grid">
+
+          <div class="skill-card reveal" style="--delay:100ms">
+            <div class="skill-icon">📈</div>
+            <h3>Digital Marketing &amp; Strategy</h3>
+            <div class="tags">
+              <span>Social Media Campaign</span>
+              <span>Copywriting</span>
+              <span>Content Creation</span>
+              <span>Client Communication</span>
+              <span>Sales Presentation</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal" style="--delay:220ms">
+            <div class="skill-icon">💻</div>
+            <h3>Technical &amp; Programming</h3>
+            <div class="tags">
+              <span>Python</span>
+              <span>JavaScript</span>
+              <span>Java</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal" style="--delay:340ms">
+            <div class="skill-icon">🎨</div>
+            <h3>Tools &amp; Software</h3>
+            <div class="tags">
+              <span>Canva</span>
+              <span>CapCut</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2 class="section-title reveal">Mari Terhubung</h2>
+        <p class="reveal" style="--delay:80ms">
+          Tertarik berkolaborasi, diskusi soal digital marketing, atau sekadar ngobrol teknologi?
+          Silakan hubungi saya lewat salah satu kanal di bawah.
+        </p>
+
+        <div class="socials">
+          <!-- GANTI link di bawah dengan akun kamu -->
+          <a class="social reveal" style="--delay:120ms" href="https://github.com/gianirpannurhakim-spec" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+            GitHub
+          </a>
+          <a class="social reveal" style="--delay:220ms" href="https://instagram.com/gynrpan" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.3 6a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 17.3 6z"/></svg>
+            Instagram
+          </a>
+          <a class="social reveal" style="--delay:320ms" href="mailto:gianirpannurhakim@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.4 7H4v.5l8 5.5 8-5.5V7h-.4L12 12.2zM4 9.9V17h16V9.9l-8 5.5-8-5.5z"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year">2026</span> Gian Irpan Nurhakim. Dibuat dengan HTML, CSS &amp; JavaScript.</div>
+  </footer>
+
+  <script>
+    /* =========================================================
+       ANIMASI SCROLL REVEAL (Intersection Observer)
+       Elemen ber-class "reveal" muncul halus saat masuk layar.
+       ========================================================= */
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+
+      // Fallback untuk browser lama / tanpa IntersectionObserver
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);   // animasi hanya sekali
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // Tahun otomatis di footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
